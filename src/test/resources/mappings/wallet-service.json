@@ -1,0 +1,15 @@
+{
+  "request": {
+    "url": "/sapi/v1/system/status"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "msg": "normal",
+      "status": 0
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
