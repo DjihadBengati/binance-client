@@ -2,7 +2,6 @@ package com.db.binance.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 import com.db.binance.model.entity.wallet.SystemStatus;
 import org.junit.jupiter.api.DisplayName;

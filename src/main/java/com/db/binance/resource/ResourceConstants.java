@@ -1,6 +1,6 @@
 package com.db.binance.resource;
 
-public final class ResourceConstants {
+final class ResourceConstants {
 
   public static final String API = "/api";
 
