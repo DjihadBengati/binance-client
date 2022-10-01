@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.db.binance.model.api.wallet.SystemStatusApiDto;
 import com.db.binance.model.entity.wallet.SystemStatus;
-import com.db.binance.model.resource.wallet.SystemStatusDto;
+import com.db.binance.model.resource.wallet.WalletSystemStatusDto;
 import org.junit.jupiter.api.Test;
 
 class SystemStatusMapperTest {
@@ -13,28 +13,28 @@ class SystemStatusMapperTest {
   @Test
   void should_map_fullResource() {
     SystemStatus entity = new SystemStatus().setMsg("normal").setStatus(0);
-    SystemStatusDto resource = new SystemStatusDto().setMsg("normal").setStatus(0);
+    WalletSystemStatusDto resource = new WalletSystemStatusDto().setMsg("normal").setStatus(0);
     assertThat(map(entity)).usingRecursiveComparison().isEqualTo(resource);
   }
 
   @Test
   void should_map_emptyResource() {
     SystemStatus entity = new SystemStatus();
-    SystemStatusDto resource = new SystemStatusDto();
+    WalletSystemStatusDto resource = new WalletSystemStatusDto();
     assertThat(map(entity)).usingRecursiveComparison().isEqualTo(resource);
   }
 
   @Test
   void should_map_emptyMsgResource() {
     SystemStatus entity = new SystemStatus().setStatus(0);
-    SystemStatusDto resource = new SystemStatusDto().setStatus(0);
+    WalletSystemStatusDto resource = new WalletSystemStatusDto().setStatus(0);
     assertThat(map(entity)).usingRecursiveComparison().isEqualTo(resource);
   }
 
   @Test
   void should_map_emptyStatusResource() {
     SystemStatus entity = new SystemStatus().setMsg("normal");
-    SystemStatusDto resource = new SystemStatusDto().setMsg("normal");
+    WalletSystemStatusDto resource = new WalletSystemStatusDto().setMsg("normal");
     assertThat(map(entity)).usingRecursiveComparison().isEqualTo(resource);
   }
 
