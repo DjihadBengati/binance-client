@@ -1,7 +1,6 @@
 package com.db.binance.service;
 
-import static com.db.binance.utils.data.ExchangeInfoData.TIMEZONE_UTC;
-import static com.db.binance.utils.data.ExchangeInfoData.fullResponse;
+import static com.db.binance.utils.data.entity.ExchangeInfoData.fullResponse;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
@@ -40,14 +39,22 @@ class BinanceServiceTest {
   @Test
   @DisplayName("Should get exchange trading rules and symbol information")
   void exchangeInfo_shouldSucceed() {
+    ExchangeInfo model = fullResponse();
     Mono<ExchangeInfo> exchangeInfo = service.exchangeInfo();
     StepVerifier
         .create(exchangeInfo)
         .consumeNextWith(r -> {
           assertThat(r).isNotNull();
           assertThat(r.getTimezone()).isNotNull();
-          assertThat(r.getTimezone()).isEqualTo(TIMEZONE_UTC);
-          assertThat(r).usingRecursiveComparison().isEqualTo(fullResponse());
+          assertThat(r.getTimezone()).isEqualTo(model.getTimezone());
+          assertThat(r.getServerTime()).isNotNull();
+          assertThat(r.getServerTime()).isEqualTo(model.getServerTime());
+          assertThat(r.getSymbols()).isNotNull();
+          assertThat(r.getSymbols()).hasSize(model.getSymbols().size());
+          assertThat(r.getSymbols().get(0).getName()).isEqualTo(
+              model.getSymbols().get(0).getName());
+          assertThat(r.getSymbols().get(0).getStatus()).isEqualTo(
+              model.getSymbols().get(0).getStatus());
         })
         .verifyComplete();
   }

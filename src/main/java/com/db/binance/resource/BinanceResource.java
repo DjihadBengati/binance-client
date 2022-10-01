@@ -1,10 +1,13 @@
 package com.db.binance.resource;
 
 import static com.db.binance.resource.ResourceConstants.API_V1;
+import static com.db.binance.resource.ResourceConstants.EXCHANGE_INFO;
 import static com.db.binance.resource.ResourceConstants.PING;
 import static com.db.binance.resource.ResourceConstants.WALLET_STATUS;
 
+import com.db.binance.mapper.ExchangeInfoMapper;
 import com.db.binance.mapper.SystemStatusMapper;
+import com.db.binance.model.resource.api.ExchangeInfoDto;
 import com.db.binance.model.resource.api.PingDto;
 import com.db.binance.model.resource.wallet.WalletSystemStatusDto;
 import com.db.binance.service.BinanceService;
@@ -31,6 +34,12 @@ public class BinanceResource {
   public Mono<PingDto> ping() {
     logger.info("Calling Binance API ping endpoint.");
     return service.apiPing().map(p -> new PingDto().setUp(p));
+  }
+
+  @GetMapping(EXCHANGE_INFO)
+  public Mono<ExchangeInfoDto> exchangeInfo() {
+    logger.info("Calling Binance exchange info.");
+    return service.exchangeInfo().map(ExchangeInfoMapper::map);
   }
 
   @GetMapping(WALLET_STATUS)
