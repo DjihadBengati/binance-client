@@ -10,7 +10,9 @@ final class ResourceConstants {
 
   public static final String WALLET = "/wallet";
 
-  public static final String WALLET_STATUS = "/status";
+  public static final String PING = "/ping";
+
+  public static final String WALLET_STATUS = WALLET + "/status";
 
   private ResourceConstants() {
   }

@@ -19,8 +19,8 @@ public class WalletService {
     this.binanceClient = binanceClient;
   }
 
-  public Mono<SystemStatus> systemStatus() {
-    return binanceClient.systemStatus()
+  public Mono<SystemStatus> walletSystemStatus() {
+    return binanceClient.walletSystemStatus()
         .doOnSubscribe(s -> logger.debug("Calling wallet system status..."))
         .doOnSuccess(s -> logger.debug("Wallet system status result: {}.", s))
         .map(SystemStatusMapper::map)

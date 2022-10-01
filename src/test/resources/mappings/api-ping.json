@@ -1,0 +1,12 @@
+{
+  "request": {
+    "url": "/api/v3/ping"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {},
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
