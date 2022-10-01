@@ -1,5 +1,12 @@
 package com.db.binance.model.api;
 
-public interface PingApiDto {
+import java.util.StringJoiner;
 
+public class PingApiDto {
+
+  @Override
+  public String toString() {
+    return new StringJoiner(", ", PingApiDto.class.getSimpleName() + "{", "}")
+        .toString();
+  }
 }
