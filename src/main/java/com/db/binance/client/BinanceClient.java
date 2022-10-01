@@ -1,8 +1,10 @@
 package com.db.binance.client;
 
+import static com.db.binance.model.api.ApiConstants.BINANCE_API_EXCHANGE_INFO;
 import static com.db.binance.model.api.ApiConstants.BINANCE_API_PING;
 import static com.db.binance.model.api.ApiConstants.BINANCE_WALLET_SYSTEM_STATUS;
 
+import com.db.binance.model.api.ExchangeInfoApiDto;
 import com.db.binance.model.api.PingApiDto;
 import com.db.binance.model.api.wallet.SystemStatusApiDto;
 import reactor.core.publisher.Mono;
@@ -31,4 +33,15 @@ public interface BinanceClient {
    */
   @GET(BINANCE_WALLET_SYSTEM_STATUS)
   Mono<SystemStatusApiDto> walletSystemStatus();
+
+  /**
+   * <p>Current exchange trading rules and symbol information.</p>
+   * <p>GET /api/v3/exchangeInfo</p>
+   * <p>Binance documentation: <a
+   * href="https://binance-docs.github.io/apidocs/spot/en/#exchange-information">link</a></p>
+   *
+   * @return ExchangeInfoApiDto
+   */
+  @GET(BINANCE_API_EXCHANGE_INFO)
+  Mono<ExchangeInfoApiDto> exchangeInfo();
 }
