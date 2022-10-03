@@ -1,5 +1,6 @@
 package com.db.binance.model.api;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -10,6 +11,10 @@ public class ExchangeInfoApiDto {
   private long serverTime;
 
   private List<SymbolApiDto> symbols;
+
+  // TODO add rate limits
+
+  // TODO add exchange filters
 
   public String getTimezone() {
     return timezone;
@@ -43,7 +48,7 @@ public class ExchangeInfoApiDto {
   public String toString() {
     return new StringJoiner(", ", ExchangeInfoApiDto.class.getSimpleName() + "[", "]")
         .add("timezone='" + timezone + "'")
-        .add("serverTime=" + serverTime)
+        .add("serverTime=" + new Timestamp(serverTime).toLocalDateTime())
         .toString();
   }
 }

@@ -1,6 +1,6 @@
 package com.db.binance.service;
 
-import static com.db.binance.utils.data.entity.ExchangeInfoData.fullResponse;
+import static com.db.binance.utils.data.ExchangeInfoData.fullExchangeInfo;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT;
 
@@ -39,7 +39,7 @@ class BinanceServiceTest {
   @Test
   @DisplayName("Should get exchange trading rules and symbol information")
   void exchangeInfo_shouldSucceed() {
-    ExchangeInfo model = fullResponse();
+    ExchangeInfo model = fullExchangeInfo();
     Mono<ExchangeInfo> exchangeInfo = service.exchangeInfo();
     StepVerifier
         .create(exchangeInfo)
