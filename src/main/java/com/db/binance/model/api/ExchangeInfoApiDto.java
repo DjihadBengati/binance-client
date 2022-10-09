@@ -12,9 +12,9 @@ public class ExchangeInfoApiDto {
 
   private List<SymbolApiDto> symbols;
 
-  // TODO add rate limits
+  private List<RateLimiterApiDto> rateLimits;
 
-  // TODO add exchange filters
+  private List<FilterApiDto> exchangeFilters;
 
   public String getTimezone() {
     return timezone;
@@ -41,6 +41,26 @@ public class ExchangeInfoApiDto {
   public ExchangeInfoApiDto setSymbols(
       List<SymbolApiDto> symbols) {
     this.symbols = symbols;
+    return this;
+  }
+
+  public List<RateLimiterApiDto> getRateLimits() {
+    return rateLimits;
+  }
+
+  public ExchangeInfoApiDto setRateLimits(
+      List<RateLimiterApiDto> rateLimits) {
+    this.rateLimits = rateLimits;
+    return this;
+  }
+
+  public List<FilterApiDto> getExchangeFilters() {
+    return exchangeFilters;
+  }
+
+  public ExchangeInfoApiDto setExchangeFilters(
+      List<FilterApiDto> exchangeFilters) {
+    this.exchangeFilters = exchangeFilters;
     return this;
   }
 

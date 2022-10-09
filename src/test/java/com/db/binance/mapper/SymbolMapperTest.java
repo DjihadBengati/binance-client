@@ -2,9 +2,11 @@ package com.db.binance.mapper;
 
 import static com.db.binance.mapper.SymbolMapper.map;
 import static com.db.binance.utils.data.ExchangeInfoData.fullSymbol;
+import static com.db.binance.utils.data.ExchangeInfoData.fullSymbolApiDto;
 import static com.db.binance.utils.data.ExchangeInfoData.fullSymbolDto;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.db.binance.model.api.SymbolApiDto;
 import com.db.binance.model.entity.Symbol;
 import com.db.binance.model.resource.api.SymbolDto;
 import org.junit.jupiter.api.Test;
@@ -25,6 +27,10 @@ class SymbolMapperTest {
 
   @Test
   void symbolMapper_shouldMapApiDto() {
-    // TODO
+    SymbolApiDto apiDto = fullSymbolApiDto();
+    Symbol expected = fullSymbol();
+    Symbol symbol = map(apiDto);
+    assertThat(symbol).isNotNull();
+    assertThat(symbol).usingRecursiveComparison().isEqualTo(expected);
   }
 }

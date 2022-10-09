@@ -1,5 +1,6 @@
 package com.db.binance.model.api;
 
+import java.util.List;
 import java.util.Set;
 
 public class SymbolApiDto {
@@ -19,7 +20,9 @@ public class SymbolApiDto {
   private Boolean cancelReplaceAllowed;
   private Boolean isSpotTradingAllowed;
   private Boolean isMarginTradingAllowed;
-  // TODO add filters
+
+  private List<FilterApiDto> filters;
+
   private Set<PermissionApiDtoEnum> permissions;
 
   public String getSymbol() {
@@ -165,6 +168,15 @@ public class SymbolApiDto {
   public SymbolApiDto setPermissions(
       Set<PermissionApiDtoEnum> permissions) {
     this.permissions = permissions;
+    return this;
+  }
+
+  public List<FilterApiDto> getFilters() {
+    return filters;
+  }
+
+  public SymbolApiDto setFilters(List<FilterApiDto> filters) {
+    this.filters = filters;
     return this;
   }
 }
