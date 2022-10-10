@@ -13,13 +13,10 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class BinanceService {
-
   private final Logger logger = getLogger(BinanceService.class);
 
   private final BinanceClient binanceClient;
   private final WalletService walletService;
-
-
   public BinanceService(BinanceClient binanceClient, WalletService walletService) {
     this.binanceClient = binanceClient;
     this.walletService = walletService;
