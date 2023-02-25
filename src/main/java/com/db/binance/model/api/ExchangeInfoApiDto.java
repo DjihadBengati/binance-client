@@ -1,0 +1,74 @@
+package com.db.binance.model.api;
+
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.StringJoiner;
+
+public class ExchangeInfoApiDto {
+
+  private String timezone;
+
+  private long serverTime;
+
+  private List<SymbolApiDto> symbols;
+
+  private List<RateLimiterApiDto> rateLimits;
+
+  private List<FilterApiDto> exchangeFilters;
+
+  public String getTimezone() {
+    return timezone;
+  }
+
+  public ExchangeInfoApiDto setTimezone(String timezone) {
+    this.timezone = timezone;
+    return this;
+  }
+
+  public long getServerTime() {
+    return serverTime;
+  }
+
+  public ExchangeInfoApiDto setServerTime(long serverTime) {
+    this.serverTime = serverTime;
+    return this;
+  }
+
+  public List<SymbolApiDto> getSymbols() {
+    return symbols;
+  }
+
+  public ExchangeInfoApiDto setSymbols(
+      List<SymbolApiDto> symbols) {
+    this.symbols = symbols;
+    return this;
+  }
+
+  public List<RateLimiterApiDto> getRateLimits() {
+    return rateLimits;
+  }
+
+  public ExchangeInfoApiDto setRateLimits(
+      List<RateLimiterApiDto> rateLimits) {
+    this.rateLimits = rateLimits;
+    return this;
+  }
+
+  public List<FilterApiDto> getExchangeFilters() {
+    return exchangeFilters;
+  }
+
+  public ExchangeInfoApiDto setExchangeFilters(
+      List<FilterApiDto> exchangeFilters) {
+    this.exchangeFilters = exchangeFilters;
+    return this;
+  }
+
+  @Override
+  public String toString() {
+    return new StringJoiner(", ", ExchangeInfoApiDto.class.getSimpleName() + "[", "]")
+        .add("timezone='" + timezone + "'")
+        .add("serverTime=" + new Timestamp(serverTime).toLocalDateTime())
+        .toString();
+  }
+}

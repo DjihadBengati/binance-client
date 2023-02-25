@@ -10,6 +10,8 @@ public final class ApiConstants {
 
   public static final String BINANCE_API_PING = BINANCE_V3 + "/ping";
 
+  public static final String BINANCE_API_EXCHANGE_INFO = BINANCE_V3 + "/exchangeInfo";
+
   private ApiConstants() {
   }
 }
